@@ -25,7 +25,7 @@ class AppWidget extends StatelessWidget {
         Locale('pt'),
       ],
       locale: const Locale('pt'),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(),
     );
   }
 }
