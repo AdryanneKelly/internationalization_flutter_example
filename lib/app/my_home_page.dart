@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:internationalization_flutter_example/app/controllers/language_controller.dart';
+import 'package:provider/provider.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
-
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -21,6 +22,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     final localization = AppLocalizations.of(context)!;
+    final languageController = Provider.of<LanguageController>(context);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
@@ -41,9 +43,11 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
+        onPressed: () {
+          languageController.toggleLanguage();
+        },
+        tooltip: 'Change Language',
+        child: const Icon(Icons.language),
       ),
     );
   }
